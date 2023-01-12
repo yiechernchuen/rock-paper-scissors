@@ -1,5 +1,9 @@
 let randomNumber = Math.floor(Math.random() * (4 - 1) + 1);
-let playerSelection = prompt('Please enter "Rock","Paper", or "Scissors"', "");
+let playerSelection = prompt(
+  'Please enter "Rock","Paper", or "Scissors"',
+  ""
+).toLowerCase();
+//let response = playerSelection.toLowerCase();
 
 function getComputerChoice(input) {
   if (input === 1) {

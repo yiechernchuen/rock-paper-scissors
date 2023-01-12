@@ -74,7 +74,7 @@ function calculateResult(victor) {
   } else if (victor == 'player') {
     player = player + 1;
   } else {
-    drawRound = drawRound + 1;
+    drawRound = drawRound + 2;
   }
 }
 

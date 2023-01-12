@@ -1,9 +1,15 @@
-let randomNumber = Math.floor(Math.random() * (4 - 1) + 1);
-let playerSelection = prompt(
+//let randomNumber = Math.floor(Math.random() * (4 - 1) + 1);
+/*let playerSelection = prompt(
   'Please enter "Rock","Paper", or "Scissors"',
   ""
-).toLowerCase();
+).toLowerCase();*/
 //let response = playerSelection.toLowerCase();
+
+//console.log(playerSelection);
+
+let computer = 0;
+let player = 0;
+let drawRound = 0;
 
 function getComputerChoice(input) {
   if (input === 1) {
@@ -15,30 +21,76 @@ function getComputerChoice(input) {
   }
 }
 
-console.log(getComputerChoice(randomNumber));
-
-function play(playerChoice, computerSelection) {
-  if (playerChoice == "rock" && computerSelection == "paper") {
-    return "You Lose! Paper beats Rock";
-  } else if (playerChoice == "rock" && computerSelection == "scissors") {
-    return "You Win! Rock beats Scissors";
-  } else if (playerChoice == "rock" && computerSelection == "rock") {
-    return "Its a Draw!";
-  } else if (playerChoice == "paper" && computerSelection == "rock") {
-    return "You Win! Paper beats Rock";
-  } else if (playerChoice == "paper" && computerSelection == "scissors") {
-    return "You Lose! Scissors beats Paper";
-  } else if (playerChoice == "paper" && computerSelection == "paper") {
-    return "Its a Draw!";
-  } else if (playerChoice == "scissors" && computerSelection == "rock") {
-    return "You Lose! Rock beats Scissors";
-  } else if (playerChoice == "scissors" && computerSelection == "paper") {
-    return "You Win! Scissors beats Paper";
-  } else if (playerChoice == "scissors" && computerSelection == "scissors") {
-    return "Its a Draw!";
+//console.log(getComputerChoice(randomNumber));
+function playRound(playerSelection, computerSelection) {
+  let victor;
+  if (playerSelection == "rock" && computerSelection == "paper") {
+    alert("You Lose! Paper beats Rock");
+    console.log("You Lose! Paper beats Rock");
+    victor = "Computer";
+  } else if (playerSelection == "rock" && computerSelection == "scissors") {
+    alert("You Win! Rock beats Scissors");
+    console.log("You Win! Rock beats Scissors");
+    victor = "Player";
+  } else if (playerSelection == "rock" && computerSelection == "rock") {
+    alert("Its a Draw!");
+    console.log("Its a Draw!");
+  } else if (playerSelection == "paper" && computerSelection == "rock") {
+    alert("You Win! Paper beats Rock");
+    console.log("You Win! Paper beats Rock");
+    victor = "Player";
+  } else if (playerSelection == "paper" && computerSelection == "scissors") {
+    alert("You Lose! Scissors beats Paper");
+    console.log("You Lose! Scissors beats Paper");
+    victor = "Computer";
+  } else if (playerSelection == "paper" && computerSelection == "paper") {
+    alert("Its a Draw!");
+    console.log("Its a Draw!");
+  } else if (playerSelection == "scissors" && computerSelection == "rock") {
+    alert("You Lose! Rock beats Scissors");
+    console.log("You Lose! Rock beats Scissors");
+    victor = "Computer";
+  } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    alert("You Win! Scissors beats Paper");
+    console.log("You Win! Scissors beats Paper");
+    victor = "Player";
+  } else if (playerSelection == "scissors" && computerSelection == "scissors") {
+    alert("Its a Draw!");
+    console.log("Its a Draw!");
   } else {
-    return "Invalid input.";
+    alert("Invalid input.");
+    console.log("Invalid input.");
+  }
+  console.log(result(victor));
+}
+
+//console.log(playRound(playerSelection, getComputerChoice(randomNumber)));
+
+function game() {
+  for (let i = 0, playerSelection, randomNumber, wins; i < 5; i++) {
+    playerSelection = prompt(
+      'Please enter "Rock","Paper", or "Scissors"',
+      ""
+    ).toLowerCase();
+    console.log(playerSelection);
+    randomNumber = Math.floor(Math.random() * (4 - 1) + 1);
+    console.log(getComputerChoice(randomNumber));
+    playRound(playerSelection, getComputerChoice(randomNumber));
   }
 }
 
-alert(play(playerSelection, getComputerChoice(randomNumber)));
+game();
+
+function result(victor) {
+  if (victor == "Computer") {
+    computer = computer + 1;
+  } else if (victor == "Player") {
+    player = player + 1;
+  } else {
+    drawRound = drawRound + 1;
+  }
+}
+
+if (computer + player + drawRound == 5) {
+  alert("You have won " + player + " out of 5 games");
+}

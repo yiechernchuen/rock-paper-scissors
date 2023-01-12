@@ -11,13 +11,15 @@ let computer = 0;
 let player = 0;
 let drawRound = 0;
 
+const computerChoice = ["ROCK", "PapER", "Scissors"];
+
 function getComputerChoice(input) {
-  if (input === 1) {
-    return "rock";
-  } else if (input === 2) {
-    return "paper";
+  if (input == 0) {
+    return computerChoice[0].toLowerCase();
+  } else if (input == 1) {
+    return computerChoice[1].toLowerCase();
   } else {
-    return "scissors";
+    return computerChoice[2].toLowerCase();
   }
 }
 
@@ -61,7 +63,7 @@ function playRound(playerSelection, computerSelection) {
     alert("Invalid input.");
     console.log("Invalid input.");
   }
-  console.log(result(victor));
+  result(victor);
 }
 
 //console.log(playRound(playerSelection, getComputerChoice(randomNumber)));
@@ -73,7 +75,7 @@ function game() {
       ""
     ).toLowerCase();
     console.log(playerSelection);
-    randomNumber = Math.floor(Math.random() * (4 - 1) + 1);
+    randomNumber = Math.floor(Math.random() * (3 - 1) + 1);
     console.log(getComputerChoice(randomNumber));
     playRound(playerSelection, getComputerChoice(randomNumber));
   }

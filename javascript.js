@@ -1,18 +1,3 @@
-//let randomNumber = Math.floor(Math.random() * (4 - 1) + 1);
-/*let playerSelection = prompt(
-  'Please enter "Rock","Paper", or "Scissors"',
-  ""
-).toLowerCase();*/
-//let response = playerSelection.toLowerCase();
-
-//console.log(playerSelection);
-
-let computer = 0;
-let player = 0;
-let drawRound = 0;
-
-const computerChoice = ['ROCK', 'PapER', 'Scissors'];
-
 const getComputerChoice = (input) => computerChoice[input].toLowerCase();
 
 const playRound = (playerSelection, computerSelection) => {
@@ -69,6 +54,12 @@ const game = () => {
     playRound(playerSelection, getComputerChoice(Math.floor(Math.random() * 3)));
   }
 };
+
+let computer = 0;
+let player = 0;
+let drawRound = 0;
+
+const computerChoice = ['ROCK', 'PapER', 'Scissors'];
 
 game();
 if (computer + player + drawRound === 5) {

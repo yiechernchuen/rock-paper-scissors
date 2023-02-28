@@ -16,7 +16,7 @@ const computerChoice = ['ROCK', 'PapER', 'Scissors'];
 const getComputerChoice = (input) => computerChoice[input].toLowerCase();
 
 const playRound = (playerSelection, computerSelection) => {
-  let victor;
+  let victor = '';
   if (playerSelection === 'rock') {
     if (computerSelection === 'paper') {
       alert('You Lose! Paper beats Rock');
@@ -64,14 +64,9 @@ const calculateResult = (victor) => {
 };
 
 const game = () => {
-  let playerSelection = '';
-  let randomNumber = 0;
   for (let i = 0; i < 5; i++) {
-    playerSelection = prompt('Please enter "Rock","Paper", or "Scissors"').toLowerCase();
-    console.log(playerSelection);
-    randomNumber = Math.floor(Math.random() * (3 - 1) + 1);
-    console.log(getComputerChoice(randomNumber));
-    playRound(playerSelection, getComputerChoice(randomNumber));
+    let playerSelection = prompt('Please enter "Rock","Paper", or "Scissors"').toLowerCase();
+    playRound(playerSelection, getComputerChoice(Math.floor(Math.random() * 3)));
   }
 };
 

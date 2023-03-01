@@ -64,7 +64,7 @@ const calculateResult = (victor) => {
 };
 
 const game = (e) => {
-  let playerChoice = e.target.textContent;
+  let playerChoice = e.currentTarget.className;
   playRound(playerChoice, getComputerChoice(Math.floor(Math.random() * 3)));
 };
 

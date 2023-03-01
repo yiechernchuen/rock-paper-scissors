@@ -1,0 +1,27 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  font-size: 50px;
+  justify-content: space-around;
+  margin: 100px;
+}
+
+.button {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  padding: 50px;
+  font-size: 20px;
+  width: 300px;
+  height: 200px;
+}
+
+p {
+  text-align: center;
+  font-size: 30px;
+}
